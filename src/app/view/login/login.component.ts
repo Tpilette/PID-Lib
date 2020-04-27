@@ -23,15 +23,16 @@ export class LoginComponent implements OnInit {
 
   }
 
-  onSubmit() {
-    this.authService.executeJWTAuthenticationService(this.loginForm.value.mail, this.loginForm.value.password).subscribe(
-      response => {
-        this.login = this.authService.getAuthenticatedUser();
-        this.token = this.authService.getAuthenticatedToken();
-        this.logged = true;
-      }
-    );
-  }
+onSubmit() {
+  this.authService.executeJWTAuthenticationService(this.loginForm.value.mail, this.loginForm.value.password).subscribe(
+    response => {
+      this.login = this.authService.getAuthenticatedUser();
+      this.token = this.authService.getAuthenticatedToken();
+      this.logged = true;
+    }
+  );
+}
+
 
   logout() {
     this.authService.logout();

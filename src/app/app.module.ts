@@ -6,19 +6,32 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './view/login/login.component';
 import { HomeComponent } from './view/home/home.component';
 import { MenuComponent } from './view/menu/menu.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpInterceptorAuthService } from './service/auth/http-interceptor-auth.service';
+import { BookComponent } from './view/book/book.component';
+import { BooksComponent } from './view/books/books.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    BookComponent,
+    BooksComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpInterceptorAuthService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

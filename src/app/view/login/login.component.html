@@ -1,16 +1,17 @@
 <form *ngIf="!logged" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <h3>Login</h3>
-    <label>
-      Mail:
+    <label>Mail:
       <input type="text" formControlName="mail">
     </label>
-    <label>
-      Password:
+    <label>Password:
       <input type="password" formControlName="password">
     </label>
     <button type="submit">Submit</button>
-  </form>
+</form>
   
   <button *ngIf="logged" (click)="logout()">Logout</button>
 
-  
+  <br>
+<br>
+Login :{{login}}<br>
+Token :{{token}}<br>
