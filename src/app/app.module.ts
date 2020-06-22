@@ -5,12 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './view/login/login.component';
 import { HomeComponent } from './view/home/home.component';
-import { MenuComponent } from './view/menu/menu.component';
+import { MenuComponent } from './view/layout/menu/menu.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpInterceptorAuthService } from './service/auth/http-interceptor-auth.service';
 import { BookComponent } from './view/book/book.component';
 import { BooksComponent } from './view/books/books.component';
+import { EditionComponent } from './view/edition/edition.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { BooksComponent } from './view/books/books.component';
     HomeComponent,
     MenuComponent,
     BookComponent,
-    BooksComponent
+    BooksComponent,
+    MenuComponent,
+    EditionComponent
   ],
   imports: [
     BrowserModule,

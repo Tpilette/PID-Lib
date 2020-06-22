@@ -1,0 +1,19 @@
+<h2>Edition existante: </h2>
+
+<div class="container">
+  <div class="row">
+      <div *ngFor="let ed of editions">
+              <div class="card-box col-md-4">
+                  <div class="card-body">
+                    <p>Maison d'édition : {{ed.publishingHouse}} </p>
+                    <p>Version numérique : {{ed.isEbook}} </p>
+                    <p>isbn : {{ed.isbn}}</p>
+                  </div>
+                  <div class="card-link">
+                      <a [routerLink]="['/borrow/'+ed.isbn]">Emprunter </a> 
+                      <a [routerLink]="['/reserve/'+ed.isbn]">Réserver</a>
+                  </div>
+              </div>
+      </div>
+  </div>
+</div>

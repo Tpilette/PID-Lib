@@ -15,12 +15,11 @@ export class BooksComponent implements OnInit {
 
   ngOnInit(): void {
  
-    this.BookService.getBooks().subscribe(
+    this.BookService.getBooks(1).subscribe(
       response=>{
         this.BookService.books = (response as Array<Book>);
+        this.books = this.BookService.books;
       }
     )
-    this.books = this.BookService.books;
-  }
-
+  }  
 }

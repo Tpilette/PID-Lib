@@ -1,7 +1,7 @@
 import { Book } from './book';
 
 export class Edition {
-    ISBN: number;
+    isbn: string;
     price: number;
     parutionDate: string;
     publishingHouse: string;

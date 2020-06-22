@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
   }
 
 onSubmit() {
-  this.authService.executeJWTAuthenticationService(this.loginForm.value.mail, this.loginForm.value.password).subscribe(
+  this.authService.executeJWTAuthenticationService(this.loginForm.value.mail, this.loginForm.value.password)
+  .subscribe(
     response => {
       this.login = this.authService.getAuthenticatedUser();
       this.token = this.authService.getAuthenticatedToken();

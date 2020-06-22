@@ -6,10 +6,13 @@ import { API_URL } from 'src/app/app.constant';
 export const TOKEN = 'token'
 export const AUTHENTICATED_USER = 'authenticaterUser'
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
+
+  public logged;
 
   constructor(private http: HttpClient) { }
   getAuthenticatedUser() {
@@ -26,6 +29,7 @@ export class AuthenticationService {
   logout() {
     sessionStorage.removeItem(AUTHENTICATED_USER);
     sessionStorage.removeItem(TOKEN);
+    this.logged = false;
   }
 
   executeJWTAuthenticationService(username, password) {
@@ -37,6 +41,7 @@ export class AuthenticationService {
         data => {
           sessionStorage.setItem(AUTHENTICATED_USER, username);
           sessionStorage.setItem(TOKEN, `Bearer ${data.token}`);
+          this.logged = true;
           return data;
         }
       )

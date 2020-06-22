@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-left">
+  <a class="navbar-brand" [routerLink]="['/home']">Neko-Shop</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/home']">Home</a></li>      
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/books/1']">Collection de livre</a></li>
+    </ul>
+    <a *ngIf="!authService.logged" [routerLink]="['/login']" class="btn btn-outline-secondary my-2 my-sm-0">Login</a>
+    <a *ngIf="authService.logged"  class="btn btn-outline-secondary my-2 my-sm-0" (click)="authService.logout()">Log out</a>
+    <a *ngIf="!authService.logged" [routerLink]="['/signup']" class="btn btn-outline-secondary my-2 my-sm-0">S'inscrire</a>  
+   
+  </div>
+</nav>

@@ -1,17 +1,28 @@
-<form *ngIf="!logged" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <h3>Login</h3>
-    <label>Mail:
+<div class="ui-g">
+  <div class="ui-g-4">
+    <form *ngIf="!logged" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h3>Login</h3>
+      
+      <label>Mail:</label>
+      <br/>
       <input type="text" formControlName="mail">
-    </label>
-    <label>Password:
-      <input type="password" formControlName="password">
-    </label>
-    <button type="submit">Submit</button>
-</form>
-  
-  <button *ngIf="logged" (click)="logout()">Logout</button>
+      <br/>
 
-  <br>
-<br>
-Login :{{login}}<br>
-Token :{{token}}<br>
+      <label>Password:</label>
+      <br/>
+      <input type="password" formControlName="password">
+      <br/>
+      
+      <button type="submit">Submit</button>
+    </form>
+
+    <div *ngIf="logged">
+      Login :{{login}}
+      <br>
+      Token :{{token}}
+      <br>
+      You are connected
+    </div>
+    
+  </div>
+</div>
