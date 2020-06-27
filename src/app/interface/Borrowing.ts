@@ -5,7 +5,8 @@ export class Borrowing {
 
     borrowingId: number;
     startDate: Date;
-    reader: Reader;
+    readerId: number;
     copyId: number;
+    title: string;
     
 }

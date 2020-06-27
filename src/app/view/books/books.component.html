@@ -1,19 +1,17 @@
 
-<h2>Les livres : </h2>
-<div class="container">
-    <div class="row">
-        <div *ngFor="let book of books">
-                <div class="card-box col-md-4">
-                    <div class="card-title">
-                        <h2>{{book.title}}</h2>
-                        <p> {{book.description}}</p>
-                    </div>
-                    <div class="card-link">
-                        <a [routerLink]="['/book/'+book.bookId]">Emprunter </a> 
-                        <a [routerLink]="['/book/'+book.bookId]">Info </a>
-                        <a [routerLink]="['/book/'+book.bookId]">Réserver</a>
-                    </div>
-                </div>
-        </div>
-    </div>
-</div>
+<h2>Nos livres : </h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+        </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let book of books">
+         <td>{{book.title}}</td>
+         <td><a [routerLink]="['/book/'+book.bookId]">Emprunter </a> </td>
+         <td><a [routerLink]="['/book/'+book.bookId]">Info </a></td>
+     </tr>
+    </tbody>
+</table>

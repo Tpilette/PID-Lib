@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from 'src/app/service/book/bookService.service';
 import { Book } from 'src/app/interface/Book';
 import { ActivatedRoute } from '@angular/router';
-import { Edition } from 'src/app/interface/Edition';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { AuthenticationService, AUTHENTICATED_USER } from 'src/app/service/auth/authentification.service';
+import { LocationParam } from 'src/app/interface/Location';
+import { Session } from 'protractor';
 
 @Component({
   selector: 'app-book',
@@ -13,6 +15,7 @@ import { Observable } from 'rxjs';
 export class BookComponent implements OnInit {
 
   book: Book;
+  loc: LocationParam;
 
   constructor(private route: ActivatedRoute,
               private bookService: BookService
@@ -23,6 +26,20 @@ export class BookComponent implements OnInit {
     this.book = this.bookService.getBook(id);  
   }  
 
+
+  emprunter(){  
+    
+    this.loc = new LocationParam();
+    this.loc.bookId = this.book.bookId;
+    this.loc.username = sessionStorage.getItem(AUTHENTICATED_USER);  
+    this.bookService.emprunter(this.loc)
+    .subscribe(
+       data=>
+      {
+        console.log(data);
+        alert("Location effectuée ! Merci");
+      })
+  }
  
 
 }

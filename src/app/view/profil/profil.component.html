@@ -1,0 +1,19 @@
+<p>profil works!</p>
+
+
+<H2>Emprunts : </H2>
+
+<table *ngIf() class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">date d'emprunt</th>
+            <th scope="col">Livre</th>
+        </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let emp of emprunts">
+         <td>{{emp.startDate | date:'dd/MM/yyyy'}}</td>
+         <td *ngIf="!emp.title">{{emp.title}}</td>
+     </tr>
+    </tbody>
+</table>

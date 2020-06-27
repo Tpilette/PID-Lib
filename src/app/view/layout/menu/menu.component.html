@@ -10,6 +10,7 @@
       <li class="nav-item"><a class="nav-link" [routerLink]="['/books/1']">Collection de livre</a></li>
     </ul>
     <a *ngIf="!authService.logged" [routerLink]="['/login']" class="btn btn-outline-secondary my-2 my-sm-0">Login</a>
+    <a *ngIf="authService.logged" [routerLink]="['/profil']" class="btn btn-outline-secondary my-2 my-sm-0">Profil Utilisateur</a>
     <a *ngIf="authService.logged"  class="btn btn-outline-secondary my-2 my-sm-0" (click)="authService.logout()">Log out</a>
     <a *ngIf="!authService.logged" [routerLink]="['/signup']" class="btn btn-outline-secondary my-2 my-sm-0">S'inscrire</a>  
    

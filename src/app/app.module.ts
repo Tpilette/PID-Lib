@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpInterceptorAuthService } from './service/auth/http-interceptor-auth.service';
 import { BookComponent } from './view/book/book.component';
 import { BooksComponent } from './view/books/books.component';
-import { EditionComponent } from './view/edition/edition.component';
+import { ProfilComponent } from './view/profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { EditionComponent } from './view/edition/edition.component';
     BookComponent,
     BooksComponent,
     MenuComponent,
-    EditionComponent
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
