@@ -3,7 +3,7 @@
 
 <H2>Emprunts : </H2>
 
-<table *ngIf() class="table table-striped">
+<table *ngIf="emprunts" class="table table-striped">
     <thead>
         <tr>
             <th scope="col">date d'emprunt</th>
@@ -13,7 +13,7 @@
     <tbody>
      <tr *ngFor="let emp of emprunts">
          <td>{{emp.startDate | date:'dd/MM/yyyy'}}</td>
-         <td *ngIf="!emp.title">{{emp.title}}</td>
+         <td>{{emp.title}}</td>
      </tr>
     </tbody>
 </table>
